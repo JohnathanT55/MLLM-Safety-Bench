@@ -7,6 +7,10 @@ import os
 from huggingface_hub import scan_cache_dir
 
 
+def default_cache_dir() -> str:
+    return os.path.join(os.path.expanduser('~'), '.cache', 'huggingface', 'hub')
+
+
 def check_hf_cache():
     """Check HuggingFace cache"""
     print("=" * 60)
@@ -27,7 +31,7 @@ def check_hf_cache():
     if not mm_safety_repos:
         print("\n[INFO] No MM-SafetyBench cache found")
         print("The dataset will be downloaded and cached automatically on first run")
-        print(f"\nDefault cache location: {os.path.expanduser('~')}\\.cache\\huggingface\\hub")
+        print(f"\nDefault cache location: {default_cache_dir()}")
         return None
     
     print(f"\nFound {len(mm_safety_repos)} MM-SafetyBench-related cache entries:\n")
@@ -39,7 +43,7 @@ def check_hf_cache():
     
     print("=" * 60)
     print("Cache location:")
-    print(f"  {os.path.expanduser('~')}\\.cache\\huggingface\\hub")
+    print(f"  {default_cache_dir()}")
     print("\nNotes:")
     print("  - The dataset will be downloaded automatically on first run")
     print("  - Subsequent runs will use the cache and avoid re-downloading")

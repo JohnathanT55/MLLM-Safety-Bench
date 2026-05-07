@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables (sensitive)
+.env
+
+# Logs
+*.log
+*.err.log
+
+# Temporary files
+*.tmp
+*.bak
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Experimental smoke/pilot files (development only)
+smoke_*.json
+pilot_*.json
+*_smoke.json
+
+# Resume/load test files
+load_*.json
+resume_*.json
+scheduler_*.json
